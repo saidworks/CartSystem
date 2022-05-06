@@ -1,23 +1,24 @@
 package com.example;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Scanner;
+
 
 
 
 public abstract class TheSystem {
 	private HashMap<String, Item> itemCollection; 
 
-    TheSystem() {
+    TheSystem() throws IOException {
         // Your code here
     	this.itemCollection = new HashMap<String, Item>();
+    	
     	if(getClass().getSimpleName().equals("AppSystem")) {
     		try {
         		FileInputStream fileIn = new FileInputStream("resources/sample.txt");
@@ -45,7 +46,7 @@ public abstract class TheSystem {
     		      
     		      fileIn.close();
     		  }
-    		catch(Exception e) {
+    		catch(FileNotFoundException e) {
     			e.printStackTrace();
     		}
     	}
