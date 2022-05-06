@@ -1,7 +1,9 @@
 package com.example;
 
+import java.io.IOException;
+
 public class AppSystem extends TheSystem {
-    AppSystem() {
+    AppSystem() throws IOException {
     }
 
     @Override
